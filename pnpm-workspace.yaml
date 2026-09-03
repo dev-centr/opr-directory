@@ -1,0 +1,7 @@
+# Single-package workspace (pnpm 11 settings home)
+packages:
+  - "."
+
+allowBuilds:
+  esbuild: true
+  "@parcel/watcher": true

@@ -1,0 +1,18 @@
+= Online directory API
+:description: OPR Directory HTTP surface (SolidStart).
+
+Normative OPR record shape: link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[uniprovider/spec/opr.md].
+
+== Endpoints
+
+* `GET /health` · `GET /opr/v1/health` — liveness
+* `GET /opr/v1/providers` — public catalog (`class`, `tag`, `q`, `limit`, `offset`)
+* `POST /opr/v1/providers` — self-register; response includes one-time `manage_token`
+* `GET /opr/v1/providers/:id`
+* `PUT` / `PATCH` / `DELETE /opr/v1/providers/:id` — `Authorization: Bearer <manage_token>`
+
+== Hosting
+
+SolidStart SSR on **Netlify** by default (`netlify.toml`).
+Vercel: set `OPR_DIRECTORY_NITRO_PRESET=vercel`.
+Persistence via **libSQL** (local file or Turso) — not Cloudflare D1.

@@ -1,0 +1,21 @@
+[build]
+  command = "pnpm build"
+  publish = ".output/public"
+  functions = ".output/server"
+
+[build.environment]
+  OPR_DIRECTORY_NITRO_PRESET = "netlify"
+  NODE_VERSION = "22"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
+
+[dev]
+  command = "pnpm dev"
+  targetPort = 3000
+  autoLaunch = false

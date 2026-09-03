@@ -4,6 +4,16 @@
 !README.adoc
 !STATUS.adoc
 !AGENTS.md
+!CHANGELOG.adoc
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!tsconfig.json
+!app.config.ts
+!netlify.toml
+!.env.example
+!src/
+!src/**
 !docs/
 !docs/**
 !spec/

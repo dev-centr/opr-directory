@@ -1,0 +1,129 @@
+:root {
+  --bg: #0f1419;
+  --fg: #e7ecf1;
+  --muted: #9aa7b5;
+  --accent: #3d9a6a;
+  --card: #1a222c;
+  --line: #2a3542;
+  --warn: #c4a35a;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1a3a2c55, transparent),
+    radial-gradient(900px 500px at 100% 0%, #24304444, transparent),
+    var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+}
+
+main.shell {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.brand {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  max-width: 40rem;
+}
+
+nav.tabs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 1rem 1.1rem;
+  margin: 0.75rem 0;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+code,
+pre {
+  font-family: "Cascadia Mono", "Consolas", "Lucida Console", monospace;
+  font-size: 0.85rem;
+}
+
+pre {
+  background: #0b1015;
+  padding: 0.85rem 1rem;
+  overflow: auto;
+  border-radius: 0.35rem;
+  border: 1px solid var(--line);
+}
+
+label {
+  display: block;
+  margin: 0.65rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--line);
+  background: #0b1015;
+  color: var(--fg);
+}
+
+button {
+  margin-top: 1rem;
+  background: var(--accent);
+  color: #04140c;
+  border: 0;
+  padding: 0.55rem 1rem;
+  border-radius: 0.35rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.warn {
+  color: var(--warn);
+  font-size: 0.9rem;
+}
+
+footer.site {
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}

@@ -1,5 +1,6 @@
 # OPR Directory
 
-- **Tentative.** No implementation this session.
-- Planned public host: `providers.devcentr.org` (DNS unset).
-- Local discovery lives in `dev-centr/uniprovider`. Keep schemas aligned with OPR.
+- SolidStart SSR; Netlify primary, Vercel via `OPR_DIRECTORY_NITRO_PRESET=vercel`.
+- Do not reintroduce Cloudflare Workers/D1 for this product without an explicit decision.
+- Secrets: names in `docs/ENV-VARIABLES.md` only.
+- Keep OPR schema aligned with `dev-centr/uniprovider/spec/opr.md`.

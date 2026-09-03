@@ -6,11 +6,11 @@ ifdef::env-github[]
 <div align="center">
 <h3 align="center">OPR Directory</h3>
 <p align="center">
-<strong>Tentative</strong> online Open Provider Registry directory — skeleton only.<br />
-Planned poll surface for apps: <code>providers.devcentr.org</code> (unset).<br /><br />
+Online <strong>Open Provider Registry</strong> catalog — apps poll, providers self-register.<br />
+SolidStart · Netlify (Vercel alternate) · libSQL/Turso<br /><br />
 <a href="https://github.com/dev-centr/opr-directory/blob/main/STATUS.adoc"><strong>STATUS »</strong></a>
 ·
-<a href="https://github.com/dev-centr/uniprovider"><strong>Local UniProvider / OPR »</strong></a>
+<a href="https://github.com/dev-centr/uniprovider"><strong>Local UniProvider »</strong></a>
 </p>
 </div>
 ++++
@@ -19,24 +19,63 @@ endif::[]
 ifndef::env-github[]
 = OPR Directory
 
-**Tentative** online Open Provider Registry directory — skeleton only.
+Online **Open Provider Registry** catalog — apps poll, providers self-register.
 See link:STATUS.adoc[STATUS].
 endif::[]
 
-== Intent (future)
+== About
 
-1. Niche model providers / gateways **register** endpoint metadata (OPR-shaped records) into a public directory.
-2. Desktop apps and agent harnesses **poll** the directory (in addition to local OPR manifests).
-3. Stay protocol-aligned with link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[OPR] — do not invent a second registration schema.
+OpenAI-compatible HTTP is a *wire* format.
+This service is the *registration directory*: public OPR records in a database, exposed at `/opr/v1/providers`.
 
-== Not this
+Local runners still use link:https://github.com/dev-centr/uniprovider[UniProvider] on disk.
+This directory is for **publicly reachable** endpoints only.
 
-| Existing thing | Relation |
-| --- | --- |
-| OpenAI-compat `/v1` | Wire format only — no global registration |
-| OpenRouter | Hosted curated marketplace — not open self-serve runner registration |
-| LiteLLM / Olla | Self-hosted proxies with operator config / profiles — valuable; not a public directory |
-| Local UniProvider | On-disk OPR + localhost aggregator — **in scope today** |
+=== Built With
+
+* Runtime
+** link:https://www.solidjs.com/[SolidStart] / SolidJS
+* Host
+** link:https://www.netlify.com/[Netlify] (default Nitro preset)
+** link:https://vercel.com/[Vercel] (set `OPR_DIRECTORY_NITRO_PRESET=vercel`)
+* Data
+** link:https://docs.turso.tech/[libSQL / Turso] (or local `file:./.data/opr.db`)
+
+== Getting Started
+
+[source,powershell]
+----
+pnpm install
+copy .env.example .env
+pnpm dev
+----
+
+Open http://localhost:3000 — catalog UI, `/register`, and `/opr/v1/providers`.
+
+=== Deploy (Netlify)
+
+1. Create a Turso database (or any libSQL URL) for production.
+2. Connect this repo to Netlify; build command `pnpm build`, publish `.output/public` (see `netlify.toml`).
+3. Set env vars from link:docs/ENV-VARIABLES.md[`docs/ENV-VARIABLES.md`].
+4. Optional: CNAME `providers.devcentr.org` → Netlify.
+
+=== Deploy (Vercel)
+
+[source,powershell]
+----
+$env:OPR_DIRECTORY_NITRO_PRESET = "vercel"
+pnpm build
+vercel deploy --prebuilt
+----
+
+Set the same database env vars in the Vercel project.
+
+== API
+
+* `GET /health` · `GET /opr/v1/health`
+* `GET /opr/v1/providers`
+* `POST /opr/v1/providers` — returns `manage_token` once
+* `GET|PUT|DELETE /opr/v1/providers/:id` — mutations need `Authorization: Bearer <manage_token>`
 
 == License
 

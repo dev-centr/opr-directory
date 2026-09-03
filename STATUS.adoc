@@ -1,21 +1,21 @@
 = Status
-:description: Tentative — not in scope for implementation today.
+:description: MVP implementation — SolidStart on Netlify (Vercel alternate).
 
-**Status:** Tentative / skeleton only.  
-**Planned host (unset):** `https://providers.devcentr.org` (or sibling under `*.devcentr.org`).  
-**Sibling local work:** link:https://github.com/dev-centr/uniprovider[uniprovider] (OPR on-disk + localhost aggregator).
+**Status:** Implemented (MVP).  
+**App stack:** SolidStart (SSR) + libSQL (local file or Turso).  
+**Primary host:** Netlify (`netlify.toml`).  
+**Alternate host:** Vercel — set `OPR_DIRECTORY_NITRO_PRESET=vercel` before `pnpm build`.  
+**Planned custom domain:** `https://providers.devcentr.org` (CNAME to Netlify/Vercel; Cloudflare DNS only if desired — no Workers/D1 required).  
+**Sibling local work:** link:https://github.com/dev-centr/uniprovider[uniprovider].
 
-== Why this repo exists
+== Why not Cloudflare Workers
 
-OpenAI-compatible HTTP is the common *wire* format (`/v1/models`, `/v1/chat/completions`).
-It is not a *registration* service.
-Local apps cannot invent a global directory by themselves — that needs an online service niche providers can register into and apps can poll.
-
-That online directory is **out of scope** for the UniProvider PoC.
-This repository reserves the name, documents the intent, and stays empty of product code until scoped.
+Cloudflare remains useful for DNS and Access in front of static docs.
+This product does **not** require Workers, D1, or Pages Functions.
+SolidStart + Netlify/Vercel matches the Dev-Centr house web stack and avoids a second hosting learning curve.
 
 == Do not
 
-* Treat this repo as shipped.
-* Point production SoloMD / Hornet builds at a live directory URL yet.
-* Duplicate OpenRouter as a curated commercial marketplace unless product intent explicitly changes.
+* Treat this as OpenRouter (no billing, no curated marketplace).
+* Register localhost / private LAN URLs (rejected by validation).
+* Commit database auth tokens or admin secrets.
