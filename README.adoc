@@ -1,0 +1,43 @@
+ifndef::env-github[:icons: font]
+:toc: preamble
+
+ifdef::env-github[]
+++++
+<div align="center">
+<h3 align="center">OPR Directory</h3>
+<p align="center">
+<strong>Tentative</strong> online Open Provider Registry directory — skeleton only.<br />
+Planned poll surface for apps: <code>providers.devcentr.org</code> (unset).<br /><br />
+<a href="https://github.com/dev-centr/opr-directory/blob/main/STATUS.adoc"><strong>STATUS »</strong></a>
+·
+<a href="https://github.com/dev-centr/uniprovider"><strong>Local UniProvider / OPR »</strong></a>
+</p>
+</div>
+++++
+endif::[]
+
+ifndef::env-github[]
+= OPR Directory
+
+**Tentative** online Open Provider Registry directory — skeleton only.
+See link:STATUS.adoc[STATUS].
+endif::[]
+
+== Intent (future)
+
+1. Niche model providers / gateways **register** endpoint metadata (OPR-shaped records) into a public directory.
+2. Desktop apps and agent harnesses **poll** the directory (in addition to local OPR manifests).
+3. Stay protocol-aligned with link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[OPR] — do not invent a second registration schema.
+
+== Not this
+
+| Existing thing | Relation |
+| --- | --- |
+| OpenAI-compat `/v1` | Wire format only — no global registration |
+| OpenRouter | Hosted curated marketplace — not open self-serve runner registration |
+| LiteLLM / Olla | Self-hosted proxies with operator config / profiles — valuable; not a public directory |
+| Local UniProvider | On-disk OPR + localhost aggregator — **in scope today** |
+
+== License
+
+MIT — see `LICENSE`.

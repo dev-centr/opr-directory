@@ -1,0 +1,21 @@
+= Status
+:description: Tentative — not in scope for implementation today.
+
+**Status:** Tentative / skeleton only.  
+**Planned host (unset):** `https://providers.devcentr.org` (or sibling under `*.devcentr.org`).  
+**Sibling local work:** link:https://github.com/dev-centr/uniprovider[uniprovider] (OPR on-disk + localhost aggregator).
+
+== Why this repo exists
+
+OpenAI-compatible HTTP is the common *wire* format (`/v1/models`, `/v1/chat/completions`).
+It is not a *registration* service.
+Local apps cannot invent a global directory by themselves — that needs an online service niche providers can register into and apps can poll.
+
+That online directory is **out of scope** for the UniProvider PoC.
+This repository reserves the name, documents the intent, and stays empty of product code until scoped.
+
+== Do not
+
+* Treat this repo as shipped.
+* Point production SoloMD / Hornet builds at a live directory URL yet.
+* Duplicate OpenRouter as a curated commercial marketplace unless product intent explicitly changes.

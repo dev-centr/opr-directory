@@ -1,0 +1,12 @@
+*
+!.gitignore
+!LICENSE
+!README.adoc
+!STATUS.adoc
+!AGENTS.md
+!docs/
+!docs/**
+!spec/
+!spec/**
+!.github/
+!.github/**

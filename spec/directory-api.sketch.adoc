@@ -1,0 +1,15 @@
+= Future online directory API (sketch)
+:description: Non-normative sketch — implement only when STATUS leaves tentative.
+
+This file is a **placeholder**. Normative OPR remains in
+link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[uniprovider/spec/opr.md].
+
+When implemented, expect roughly:
+
+* `GET /opr/v1/providers` — public catalog (pagination, filters by `class` / tags)
+* `POST /opr/v1/providers` — authenticated self-registration (provider maintainers)
+* `GET /health`
+
+Auth, abuse controls, and ToS are product work — not designed here.
+Apps that already speak OpenAI-compat continue to call each provider `base_url` after discovery;
+this service only answers *what exists*.
