@@ -39,7 +39,8 @@ This directory is for **publicly reachable** endpoints only.
 ** link:https://www.netlify.com/[Netlify] (default Nitro preset)
 ** link:https://vercel.com/[Vercel] (set `OPR_DIRECTORY_NITRO_PRESET=vercel`)
 * Data
-** link:https://docs.turso.tech/[libSQL / Turso] (or local `file:./.data/opr.db`)
+** JSON file locally (`.data/catalog.json`)
+** link:https://docs.turso.tech/[Turso] / remote libSQL for production (`libsql://` / `https://`)
 
 == Getting Started
 
@@ -54,7 +55,7 @@ Open http://localhost:3000 — catalog UI, `/register`, and `/opr/v1/providers`.
 
 === Deploy (Netlify)
 
-1. Create a Turso database (or any libSQL URL) for production.
+1. Optional: create a Turso database for durable multi-instance storage (JSON file is fine for a single Netlify function instance / local).
 2. Connect this repo to Netlify; build command `pnpm build`, publish `.output/public` (see `netlify.toml`).
 3. Set env vars from link:docs/ENV-VARIABLES.md[`docs/ENV-VARIABLES.md`].
 4. Optional: CNAME `providers.devcentr.org` → Netlify.

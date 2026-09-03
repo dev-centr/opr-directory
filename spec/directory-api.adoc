@@ -15,4 +15,4 @@ Normative OPR record shape: link:https://github.com/dev-centr/uniprovider/blob/m
 
 SolidStart SSR on **Netlify** by default (`netlify.toml`).
 Vercel: set `OPR_DIRECTORY_NITRO_PRESET=vercel`.
-Persistence via **libSQL** (local file or Turso) — not Cloudflare D1.
+Persistence: **JSON file** by default (`.data/catalog.json`); optional remote **Turso** (`libsql://` / `https://`). Not Cloudflare D1.

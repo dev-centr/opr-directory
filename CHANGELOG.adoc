@@ -4,5 +4,6 @@
 
 * Replaced Workers/D1 skeleton with **SolidStart** SSR.
 * Default local Nitro preset `node-server`; Netlify via `netlify.toml`; Vercel via `OPR_DIRECTORY_NITRO_PRESET=vercel`.
+* Added missing `GET|PUT|PATCH|DELETE /opr/v1/providers/:id` route.
 * Persistence: JSON file locally; optional remote Turso (`libsql://` / `https://`).
 * OPR `/opr/v1/*` API + catalog/register UI; rejects localhost `base_url`.
