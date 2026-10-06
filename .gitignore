@@ -20,3 +20,5 @@
 !spec/**
 !.github/
 !.github/**
+!/.editorconfig
+!/.gitattributes
